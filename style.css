@@ -1,217 +1,115 @@
-body {
+body,
+html {
     margin: 0;
-    font-family: Arial, sans-serif;
-    background: #ffffff;
-}
-
-.topbar {
-    background: #35a3dc;
-    color: white;
-    font-size: 13px;
-}
-
-.topbar .container {
-    max-width: 1100px;
-    margin: 0 auto;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 6px 0;
-}
-
-.logo {
-    display: flex;
-    align-items: center;
-}
-
-.logo img {
-    height: 30px;
-    margin-right: 8px;
-}
-
-.logo span {
-    font-weight: bold;
-    font-size: 16px;
-}
-
-.menu a {
-    color: white;
-    text-decoration: none;
-    margin-left: 10px;
-}
-
-.center-wrapper {
-    display: flex;
-    justify-content: center;
-    margin-top: 10px;
-}
-
-/* 廣告統一樣式 */
-.ad {
-    width: 640px;
-    background-color: #fafafa;
-    border: 1px solid #ddd;
-    border-radius: 4px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    padding: 10px;
-}
-
-.ad img {
-    width: 100%;
-    height: auto;
-}
-
-.ad-placeholder {
-    font-size: 20px;
-    color: #555;
-    font-weight: bold;
-    text-align: center;
-    width: auto;
-}
-
-.ad-2 {
-
-    padding: 20px;
-
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-
-.main {
-    display: flex;
-    justify-content: center;
-    align-items: flex-start;
-    padding: 30px 0;
-    gap: 30px;
-}
-
-.login-box {
-    width: 308px;
-    background: linear-gradient(to bottom, #e5f5ff 0%, #bde3ff 100%);
     padding: 0;
-    border: 1px solid #ccc;
-    border-radius: 3px;
-    font-size: 13px;
-    box-shadow: 0 0 3px rgba(0, 0, 0, 0.1);
-    overflow: hidden;
+    height: 100%;
+    font-family: sans-serif;
 }
 
-.login-title {
-    font-size: 16px;
-    color: #004b91;
-    font-weight: bold;
-    background: white;
-    padding: 10px 15px;
-    border-bottom: 1px solid #ccc;
-}
-
-.login-header {
-    background: rgb(242, 241, 241);
-    padding: 12px;
-    display: flex;
-    align-items: start;
-    justify-content: left;
-    border-bottom: 1px solid #ccc;
-}
-
-.login-header img {
-    height: 32px;
-}
-
-#loginForm {
-    padding: 15px;
-}
-
-#loginForm input[type="text"],
-#loginForm input[type="password"] {
-    width: 100%;
-    padding: 10px;
-    margin-bottom: 10px;
-    box-sizing: border-box;
-    border: 1px solid #ccc;
-    border-radius: 0;
-    font-size: 14px;
-    background-color: #f5faff;
-}
-
-#loginForm button {
-    width: 100%;
-    background: linear-gradient(to bottom, #4eaaf5 0%, #0074d9 100%);
-    color: white;
-    padding: 10px;
-    border: none;
-    font-weight: bold;
-    font-size: 14px;
-    margin-top: 10px;
-    cursor: pointer;
-    border-radius: 0;
-}
-
-.divider {
-    background-color: #004b91;
-    color: white;
-    font-size: 14px;
-    text-align: center;
-    padding: 8px 0;
-    margin-top: 15px;
-}
-
-.service-icons {
-    display: flex;
-    justify-content: space-around;
-    flex-wrap: wrap;
-    background: white;
-    padding: 10px 0;
-}
-
-.service-icons div {
+.carousel {
+    height: 100vh;
     display: flex;
     flex-direction: column;
     align-items: center;
-    margin: 0 5px;
-    font-size: 12px;
-    color: #004b91;
+    justify-content: center;
+    transition: background-color 0.5s;
+    background-color: #2A93BC;
 }
 
-.service-icons img {
-    width: 48px;
-    height: 48px;
-    margin-bottom: 4px;
-}
-
-.input-group {
+.slides {
     position: relative;
+    width: 100%;
+    height: 80%;
     display: flex;
+    justify-content: center;
     align-items: center;
 }
 
-.input-group input {
-    flex: 1;
-    padding-right: 30px;
-    /* 預留右側空間 */
+.slide {
+    display: none;
+    flex-direction: column;
+    align-items: center;
+    transition: opacity 0.5s;
 }
 
-.help-icon {
-    position: absolute;
-    right: 8px;
-    width: 20px;
-    height: 20px;
+.slide.active {
+    display: flex;
+}
+
+.slide img {
+    max-width: 300px;
+    height: auto;
+}
+
+.nav {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+button {
+    font-size: 2rem;
+    background: none;
+    border: none;
+    color: white;
     cursor: pointer;
 }
 
-.bottom-ad {
-    background: white;
-    padding: 8px 12px;
-    border-top: 1px solid #ccc;
+.dots {
+    display: flex;
+    gap: 0.5rem;
+}
+
+.dots img {
+    width: 40px;
+    height: 32px;
+    opacity: 0.5;
+    cursor: pointer;
+    border: 2px solid transparent;
+    transition: opacity 0.3s, border 0.3s;
+}
+
+.dots img.active {
+    opacity: 1;
+    border: 2px solid white;
+}
+
+.price-panel {
+    position: absolute;
+    top: 10%;
+    right: 5%;
+    width: 250px;
+    background: #fff;
+    padding: 1rem;
+    border-radius: 12px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+    color: #333;
+    font-size: 0.9rem;
+    z-index: 1000;
+}
+
+.price-panel table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.price-panel th,
+.price-panel td {
+    border: 1px solid #ccc;
+    padding: 4px;
     text-align: center;
 }
 
-.bottom-ad img {
-    width: 100%;
-    height: auto;
-    max-width: 100%;
+#result {
+    margin-top: 0.5rem;
+    font-weight: bold;
+    font-size: 1rem;
+    color: #222;
+}
+
+.img-box {
+    background: white;
+    padding: 12px;
+    border-radius: 10px;
+    display: inline-block;
 }
